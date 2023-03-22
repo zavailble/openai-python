@@ -509,7 +509,11 @@ class APIRequestor:
         abs_url, headers, data = self._prepare_request_raw(
             url, supplied_headers, method, params, files, request_id
         )
-
+        # proxy = {
+        #     'http': 'http://:10.63.123.15:4781',
+        #     'https': 'https://10.63.123.15:4781'
+        #     # 10.63.123.15 4780
+        #        }
         if not hasattr(_thread_context, "session"):
             _thread_context.session = _make_session()
         try:
@@ -521,6 +525,7 @@ class APIRequestor:
                 files=files,
                 stream=stream,
                 timeout=request_timeout if request_timeout else TIMEOUT_SECS,
+                # proxies=proxy
             )
         except requests.exceptions.Timeout as e:
             raise error.Timeout("Request timed out: {}".format(e)) from e
