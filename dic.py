@@ -5,10 +5,7 @@ openai.organization = "org-a6q5O46t5UeIPYYfPro8qUHB"
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.Model.list()
 prompt = """
-Decide whether a Mike's sentiment is positive, neutral, or negative.
 
-Mike: I don't like homework!
-Sentiment:
 """
 
 response = openai.Completion.create(
