@@ -5,7 +5,6 @@ openai.organization = "org-a6q5O46t5UeIPYYfPro8qUHB"
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.Model.list()
 prompt = """
-
 """
 
 response = openai.Completion.create(
